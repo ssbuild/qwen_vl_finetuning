@@ -61,8 +61,8 @@ if __name__ == '__main__':
     #     model.half().cuda()
     model.half().cuda()
     text_list = [
-        "写一个诗歌，关于冬天",
-        "晚上睡不着应该怎么办",
+        "你好",
+        "Picture 1: <img>../assets/demo.jpeg</img>\n图中的狗是什么品种？",
     ]
     generation_config = GenerationConfig(**{
         "chat_format": "chatml",
