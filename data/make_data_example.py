@@ -23,7 +23,7 @@ template =[
     "conversations": [
       {
         "from": "user",
-        "value": "Picture 1: <img>https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg</img>\n图中的狗是什么品种？"
+        "value": "Picture 1: <img>../assets/demo.jpeg</img>\n图中的狗是什么品种？"
       },
       {
         "from": "assistant",
@@ -44,7 +44,7 @@ template =[
     "conversations": [
       {
         "from": "user",
-        "value": "Picture 1: <img>assets/mm_tutorial/Chongqing.jpeg</img>\nPicture 2: <img>assets/mm_tutorial/Beijing.jpeg</img>\n图中都是哪"
+        "value": "Picture 1: <img>../assets/Chongqing.jpeg</img>\nPicture 2: <img>../assets/Beijing.jpeg</img>\n图中都是哪"
       },
       {
         "from": "assistant",

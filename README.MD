@@ -103,7 +103,7 @@ a answer   must
 
    
 
-![inference](asserts/1.png)
+![inference](data/1.png)
 
 
 

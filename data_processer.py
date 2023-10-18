@@ -121,6 +121,8 @@ class TokenIdsMaker:
         prefix,paragraph = data
         sptoken = [ ]
         ds = []
+
+        img_start_id,img_end_id = tokenizer.img_start_id,tokenizer.img_end_id
         for sid,(q,a) in enumerate(paragraph):
             _,a_ids = make_context(tokenizer=tokenizer,query=q,history=paragraph[:sid],
                                    system = prefix or "You are a helpful assistant." ,
@@ -134,6 +136,21 @@ class TokenIdsMaker:
                 else:
                     a_ids.pop(0)
             b_ids += [ tokenizer.eod_id ]
+
+            ims_idx,ime_idx = -1,-1
+            try:
+                ims_idx = a_ids.index(img_start_id)
+            except:
+                ims_idx = -1
+            try:
+                ime_idx = a_ids.index(img_end_id)
+            except:
+                ime_idx = -1
+
+            if ime_idx!= -1 and ime_idx <=ims_idx:
+                a_ids = a_ids[ime_idx+1:]
+
+
             input_ids = a_ids + b_ids
             labels = copy.deepcopy(input_ids) if not sup else [ -100 ] * len(a_ids) + copy.deepcopy(b_ids)
             input_ids = sptoken + input_ids
