@@ -137,7 +137,6 @@ class TokenIdsMaker:
                     a_ids.pop(0)
             b_ids += [ tokenizer.eod_id ]
 
-            ims_idx,ime_idx = -1,-1
             try:
                 ims_idx = a_ids.index(img_start_id)
             except:
@@ -147,10 +146,10 @@ class TokenIdsMaker:
             except:
                 ime_idx = -1
 
-            if ime_idx!= -1 and ime_idx <=ims_idx:
+            if ime_idx!= -1 and (ime_idx <=ims_idx or ims_idx == -1):
                 a_ids = a_ids[ime_idx+1:]
 
-
+            assert len(a_ids) > 0
             input_ids = a_ids + b_ids
             labels = copy.deepcopy(input_ids) if not sup else [ -100 ] * len(a_ids) + copy.deepcopy(b_ids)
             input_ids = sptoken + input_ids

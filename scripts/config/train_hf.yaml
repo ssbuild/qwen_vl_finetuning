@@ -18,6 +18,9 @@ global_args:
     bnb_4bit_compute_dtype: float16 # one of float16  bfloat16 float32
     bnb_4bit_use_double_quant: true
     bnb_4bit_quant_type: nf4
+    llm_int8_skip_modules:
+      - attn_pool.attn
+      - lm_head
 
 # one of record lmdb arrow_stream arrow_file,parquet, 超大数据集可以使用 lmdb , 注 lmdb 存储空间比record大
 data_backend: parquet
