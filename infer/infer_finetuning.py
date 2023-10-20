@@ -72,6 +72,7 @@ if __name__ == '__main__':
         "chat_format": "chatml",
         "eos_token_id": tokenizer.eod_id,
         "max_new_tokens": 512,
+        "max_window_size": 6144,
         "pad_token_id": tokenizer.eod_id,
         # "stop_words_ids": [[tokenizer.eod_id]],
         "do_sample": True,
